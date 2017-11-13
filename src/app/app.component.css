@@ -1,0 +1,128 @@
+#video-player {
+    position: absolute;
+    left: 15%;
+    bottom: 10%;
+    padding: 3px;
+    border: 1px black solid;
+    background: black;
+}
+
+.screen-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0%;
+    bottom: 0%;
+    background-image: url("../assets/backgrounds/mw.jpg");
+}
+
+/* .screen-holder {
+    width: 200px;
+    height: 140px;
+    position: absolute;
+    background-color: black;
+    border: 15px solid #e2e2e2;
+    top: 71.5%;
+    left: 11%;
+    transform: skew(12deg) rotate(-12deg);
+    -webkit-transform: skew(12deg) rotate(-12deg);
+    -moz-transform: skew(12deg) rotate(-12deg);   
+} */
+
+div.skewed-right {
+    position: absolute;
+    height: 90px;
+    transform: skew(12deg) rotate(-12deg);
+    -webkit-transform: skew(12deg) rotate(-12deg);
+    -moz-transform: skew(12deg) rotate(-12deg);
+    overflow: hidden;
+  }
+  
+  div.skewed > * {
+    width: 110%;
+    position: absolute;
+    top: 50%;
+    transform: skew(2deg) rotate(-2deg) translateY(-50%);
+    -webkit-transform: skew(2deg) rotate(-2deg) translateY(-50%);
+    -moz-transform: skew(2deg) rotate(-2deg) translateY(-50%);
+  }
+
+/* NEON STUFF */
+
+.screen-glow {
+    background: #000000;
+    -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+    animation: neon2 1.5s ease-in-out infinite alternate;
+    border: 5px solid rgba(128,128,128,0.16) !important;
+    padding: 20px;
+  }
+
+@-webkit-keyframes neon2 {
+    from {
+      box-shadow: 0 0 1px #2e2e2e,
+                  0 0 2px #2e2e2e,
+                  0 0 3px #2e2e2e,
+                  0 0 4px #228DFF, 
+                  0 0 7px #228DFF, 
+                  0 0 8px #228DFF, 
+                  0 0 10px #228DFF, 
+                  0 0 10px #228DFF;
+    }
+    to {
+      box-shadow:  0 0 2px #2e2e2e,
+                   0 0 5px #2e2e2e,
+                   0 0 7px #2e2e2e,
+                   0 0 10px #228DFF,
+                   0 0 17px #228DFF, 
+                   0 0 20px #228DFF, 
+                   0 0 25px #228DFF, 
+                   0 0 35px #228DFF;
+    }
+  }
+  
+  @-moz-keyframes neon2  {
+    from {
+      box-shadow:  0 0 1px #2e2e2e,
+                   0 0 2px #2e2e2e,
+                   0 0 3px #2e2e2e,
+                   0 0 4px #228DFF, 
+                   0 0 7px #228DFF, 
+                   0 0 8px #228DFF, 
+                   0 0 10px #228DFF, 
+                   0 0 10px #228DFF;
+    }
+    to {
+      box-shadow:  0 0 2px #2e2e2e,
+                   0 0 5px #2e2e2e,
+                   0 0 7px #2e2e2e,
+                   0 0 10px #228DFF,
+                   0 0 17px #228DFF, 
+                   0 0 20px #228DFF, 
+                   0 0 25px #228DFF, 
+                   0 0 35px #228DFF;
+    }
+  }
+  
+  @keyframes neon2  {
+    from {
+      box-shadow:  0 0 1px #2e2e2e,
+                   0 0 2px #2e2e2e,
+                   0 0 3px #2e2e2e,
+                   0 0 4px #228DFF, 
+                   0 0 7px #228DFF, 
+                   0 0 8px #228DFF, 
+                   0 0 10px #228DFF, 
+                   0 0 10px #228DFF;
+    }
+    to {
+      box-shadow:  0 0 2px #2e2e2e,
+                   0 0 5px #2e2e2e,
+                   0 0 7px #2e2e2e,
+                   0 0 10px #228DFF,
+                   0 0 17px #228DFF, 
+                   0 0 20px #228DFF, 
+                   0 0 25px #228DFF, 
+                   0 0 35px #228DFF;
+    }
+  }
