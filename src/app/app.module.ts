@@ -8,7 +8,8 @@ import { TunnelComponent } from './tunnel/tunnel.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
-  { path: 'cube', component: CubeComponent }
+  { path: 'cube', component: CubeComponent },
+  { path: 'tunnel', component: TunnelComponent } 
 ]
 
 
