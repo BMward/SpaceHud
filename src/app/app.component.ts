@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 declare var jquery:any;
 declare var $ :any;
+import * as THREE from 'three';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,12 @@ export class AppComponent {
    */
   constructor() {
     window.setTimeout(() => {
-      this.lookRight();    
+      this.initKeyFunctions();    
     }, 1300);
   }
 
 
-  lookRight() : void {
+  initKeyFunctions() : void {
     document.addEventListener("keydown", (event) => {
       if(event.key == "ArrowRight") {
         this.PanElementWidth('screen-background', 2);
