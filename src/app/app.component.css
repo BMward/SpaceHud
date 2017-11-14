@@ -1,10 +1,55 @@
 #video-player {
     position: absolute;
-    left: 15%;
-    bottom: 10%;
+    left: 55%;
+    bottom: 30%;
     padding: 3px;
     border: 1px black solid;
     background: black;
+}
+
+.bottom-left-panel {
+  position: absolute;
+  background-color: rgba(34, 144, 255, 0.164);
+  border-left: 30px outset rgba(128,128,128,255);
+  border-bottom: 30px outset rgba(128,128,128,255);
+  border-top: 3px inset rgba(128,128,128,255);
+  border-right: 3px inset rgba(128,128,128,255);
+  height: 25%;
+  width: 25%;
+  bottom: -5%;
+  left: 0%;
+  transform: skew(12deg) rotate(-12deg);
+  -webkit-transform: skew(12deg) rotate(-12deg);
+  -moz-transform: skew(12deg) rotate(-12deg);
+}
+
+.bottom-mid-panel {
+  position: absolute;
+  background-color: rgba(34, 144, 255, 0.164);
+  border-right: 3px inset rgba(128,128,128,255);
+  border-bottom: 30px outset rgba(128,128,128,255);
+  border-top: 1.5px inset rgba(128,128,128,255);
+  border-left: 3px outset rgba(128,128,128,255);
+  height: 25%;
+  width: 25%;
+  bottom: 7%;
+  right: 37.5%;
+}
+
+.bottom-right-panel {
+  position: absolute;
+  background-color: rgba(34, 144, 255, 0.164);
+  border-right: 30px inset rgba(128,128,128,255);
+  border-bottom: 30px outset rgba(128,128,128,255);
+  border-top: 1.5px inset rgba(128,128,128,255);
+  border-left: 3px outset rgba(128,128,128,255);
+  height: 25%;
+  width: 25%;
+  bottom: -5%;
+  right: 0%;
+  transform: skew(-12deg) rotate(12deg);
+  -webkit-transform: skew(-12deg) rotate(12deg);
+  -moz-transform: skew(-12deg) rotate(12deg);
 }
 
 .screen-background {
@@ -15,19 +60,6 @@
     bottom: 0%;
     background-image: url("../assets/backgrounds/mw.jpg");
 }
-
-/* .screen-holder {
-    width: 200px;
-    height: 140px;
-    position: absolute;
-    background-color: black;
-    border: 15px solid #e2e2e2;
-    top: 71.5%;
-    left: 11%;
-    transform: skew(12deg) rotate(-12deg);
-    -webkit-transform: skew(12deg) rotate(-12deg);
-    -moz-transform: skew(12deg) rotate(-12deg);   
-} */
 
 div.skewed-right {
     position: absolute;
