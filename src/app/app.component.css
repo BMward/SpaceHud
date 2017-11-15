@@ -8,8 +8,6 @@
   top: 10%;
 }
 
-.bottom-widget
-
 .bottom-left-panel {
   position: absolute;
   background-color: rgb(0,0,0);
@@ -19,7 +17,7 @@
   bottom: 10%;
   left: -30%;
   transform: skew(12deg) rotate(-12deg);
-  -webkit-transform: skew(12deg) rotate(-12deg);
+  -webkit-transform: skew(12deg) rotate(-12deg) translateZ(0);
   -moz-transform: skew(12deg) rotate(-12deg);
   z-index: 10;
   animation: slide-right 2s forwards, fade-in 3s 2s, neon2 2.5s ease-in-out infinite alternate;
