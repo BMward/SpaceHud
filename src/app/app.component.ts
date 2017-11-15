@@ -11,6 +11,7 @@ declare var $ :any;
 })
 export class AppComponent {
   title = 'app';
+  extended = false;
 
   constructor() {
     window.setTimeout(() => {
@@ -34,6 +35,23 @@ export class AppComponent {
         this.PanElementHeight('screen-background', 2);
       }
     });
+  }
+
+  log(message: string) : void {
+    console.log(message);
+  }
+
+  movePanel() : void {
+    var panel = $('.bottom-left-panel')[0];
+    if(!this.extended) {
+      panel.style["animation"] = "slide-right-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
+      this.log('panel extended');
+    } else {
+      panel.style["animation"] = "slide-left-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
+      this.log('panel extended');
+    }
+    this.extended = !this.extended;
+    
   }
 
   PanElementWidth(className : string, increment: number) : void {
