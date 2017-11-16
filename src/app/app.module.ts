@@ -5,11 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CubeComponent } from './cube/cube.component';
 import { TunnelComponent } from './tunnel/tunnel.component';
+import { CylinderComponent } from './cylinder/cylinder.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
   { path: 'cube', component: CubeComponent },
-  { path: 'tunnel', component: TunnelComponent } 
+  { path: 'tunnel', component: TunnelComponent } ,
+  { path: 'cyl', component: CylinderComponent } 
 ]
 
 
@@ -17,7 +19,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CubeComponent,
-    TunnelComponent
+    TunnelComponent,
+    CylinderComponent
   ],
   imports: [
     BrowserModule,
