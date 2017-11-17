@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 declare var jquery:any;
 declare var $ :any;
 
@@ -12,14 +13,23 @@ declare var $ :any;
 export class YoutubeVideoComponent implements OnInit {
 
   extended = false;
+  youtubeBaseUrl : string = "https://www.youtube.com/embed/";
+  sanitizedYouTubeUrl : any;
   @Input() id;
   videoId = [];
 
-  constructor(private route : ActivatedRoute) { }
+  constructor(private route : ActivatedRoute, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-   this.videoId = this.id;
-   console.log(this.videoId);
+    if(this.id === null || this.id === undefined || this.id.length < 11) {
+      this.videoId.push('YDbDKG4X5xc');
+    }
+    else {
+      this.videoId.push(this.id);
+    }
+    this.youtubeBaseUrl += this.videoId[0];
+    this.sanitizedYouTubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeBaseUrl);
+    console.log(this.sanitizedYouTubeUrl);
   }
 
   movePanel() : void {

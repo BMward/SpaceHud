@@ -18,9 +18,7 @@ export class AppComponent implements OnInit {
   routeData: any;
   
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.testIds.push(params.get('id'));
-    })
+    
   }
   constructor(private route : ActivatedRoute, private router : Router) {
     
