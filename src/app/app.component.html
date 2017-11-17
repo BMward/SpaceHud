@@ -1,14 +1,7 @@
 <!-- <div class="screen-background"></div> -->
-<div class="screen-holder "></div>
+<!-- <div class="screen-holder "></div> -->
+<router-outlet></router-outlet>
+<app-youtube-video *ngFor="let t of testIds" [id]="t"></app-youtube-video>
 
-<div class="bottom-left-panel">
-  <div id="screen">
-    <div id="video-player" class="video-player"> 
-        <app-youtube-video></app-youtube-video>
-    </div>
-  </div>
-</div>
-<div class="pivot-arm" (click)="movePanel()"></div>
-<div class="bottom-right-panel"> 
-</div> 
+
 

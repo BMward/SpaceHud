@@ -1,6 +1,7 @@
 /// <reference path="../../node_modules/@types/three/index.d.ts" />
 /// <reference path="../../node_modules/@types/three/three-orbitcontrols.d.ts" />
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
 declare var jquery:any;
 declare var $ :any;
 
@@ -9,11 +10,21 @@ declare var $ :any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
+  testIds = [];
   extended = false;
+  name : any;
+  routeData: any;
+  
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.testIds.push(params.get('id'));
+    })
+  }
+  constructor(private route : ActivatedRoute, private router : Router) {
+    
 
-  constructor() {
     window.setTimeout(() => {
       this.initKeyFunctions();    
     }, 1300);
@@ -41,18 +52,7 @@ export class AppComponent {
     console.log(message);
   }
 
-  movePanel() : void {
-    var panel = $('.bottom-left-panel')[0];
-    if(!this.extended) {
-      panel.style["animation"] = "slide-right-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
-      this.log('panel extended');
-    } else {
-      panel.style["animation"] = "slide-left-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
-      this.log('panel extended');
-    }
-    this.extended = !this.extended;
-    
-  }
+  
 
   PanElementWidth(className : string, increment: number) : void {
     //get the classname of the background image element

@@ -9,11 +9,11 @@ import { CylinderComponent } from './cylinder/cylinder.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
+  { path: 'home/:id', component: AppComponent },
   { path: 'cube', component: CubeComponent },
   { path: 'tunnel', component: TunnelComponent },
   { path: 'cyl', component: CylinderComponent },
-  { path: 'video/:id', component: YoutubeVideoComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]
 
 
