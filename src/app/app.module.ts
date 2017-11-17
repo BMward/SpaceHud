@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CubeComponent } from './cube/cube.component';
 import { TunnelComponent } from './tunnel/tunnel.component';
 import { CylinderComponent } from './cylinder/cylinder.component';
+import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 
 const appRoutes: Routes = [
   { path: '', component: AppComponent },
   { path: 'cube', component: CubeComponent },
-  { path: 'tunnel', component: TunnelComponent } ,
-  { path: 'cyl', component: CylinderComponent } 
+  { path: 'tunnel', component: TunnelComponent },
+  { path: 'cyl', component: CylinderComponent },
+  { path: 'video/:id', component: YoutubeVideoComponent }
 ]
 
 
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
     AppComponent,
     CubeComponent,
     TunnelComponent,
-    CylinderComponent
+    CylinderComponent,
+    YoutubeVideoComponent
   ],
   imports: [
     BrowserModule,
