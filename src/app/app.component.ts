@@ -1,8 +1,6 @@
 /// <reference path="../../node_modules/@types/three/index.d.ts" />
 /// <reference path="../../node_modules/@types/three/three-orbitcontrols.d.ts" />
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router, RoutesRecognized, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import { Component } from '@angular/core';
 declare var jquery:any;
 declare var $ :any;
 
@@ -11,42 +9,15 @@ declare var $ :any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-
-  p : any; 
-  sub : any;
-  youtubeVideoUrl: string;
+export class AppComponent {
   title = 'app';
   extended = false;
 
-  ngOnDestroy(): void {
-    throw new Error("Method not implemented.");
-  }
-  ngOnInit(): void {
-    this.youtubeVideoUrl = 'https://www.youtube.com/embed/';
-    this.router.events.subscribe(val => {
-      if (val instanceof RoutesRecognized) {
-        console.log(val.state.root.firstChild.params.id);
-        this.p = val.state.root.firstChild.params.id;
-      }
-    })
-    console.log(this.p);
-    // this.route.params.subscribe(params => {
-    //   console.log(params);
-    //   if(!params['id']) {
-    //     this.youtubeVideoUrl += 'YDbDKG4X5xc'
-    //   } else {
-    //     this.youtubeVideoUrl += params['id'];
-    //   }
-    // });
+  constructor() {
     window.setTimeout(() => {
       this.initKeyFunctions();    
     }, 1300);
   }
-  
-
-  constructor(private route : ActivatedRoute,
-              private router: Router) { }
 
   // sets up the event listenders for key presses that pan the screen.
   initKeyFunctions() : void {

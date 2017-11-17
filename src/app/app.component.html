@@ -1,10 +1,13 @@
 <!-- <div class="screen-background"></div> -->
 <div class="screen-holder "></div>
-
-
+<router-outlet></router-outlet>
 
 <div class="bottom-left-panel">
-        <iframe style="z-index: 5 !important;" src="" frameborder="0" allowfullscreen></iframe>
+  <div id="screen">
+    <div id="video-player" class="video-player"> 
+        <iframe style="z-index: 5 !important;" src="https://www.youtube.com/embed/YDbDKG4X5xc?autoplay=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
 </div>
 <div class="pivot-arm" (click)="movePanel()"></div>
 <div class="bottom-right-panel"> 

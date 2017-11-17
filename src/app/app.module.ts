@@ -11,8 +11,7 @@ const appRoutes: Routes = [
   { path: '', component: AppComponent },
   { path: 'cube', component: CubeComponent },
   { path: 'tunnel', component: TunnelComponent } ,
-  { path: 'cyl', component: CylinderComponent } ,
-  { path: 'test/:id', component: AppComponent }
+  { path: 'cyl', component: CylinderComponent } 
 ]
 
 
