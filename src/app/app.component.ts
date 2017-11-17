@@ -1,6 +1,7 @@
 /// <reference path="../../node_modules/@types/three/index.d.ts" />
 /// <reference path="../../node_modules/@types/three/three-orbitcontrols.d.ts" />
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 declare var jquery:any;
 declare var $ :any;
 
@@ -9,14 +10,33 @@ declare var $ :any;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+
+  youtubeVideoUrl: string;
   title = 'app';
   extended = false;
 
-  constructor() {
+  ngOnDestroy(): void {
+    throw new Error("Method not implemented.");
+  }
+  ngOnInit(): void {
+    this.youtubeVideoUrl = 'https://www.youtube.com/embed/';
+    this.route.params.subscribe(params => {
+      console.log(params);
+      if(!params['id']) {
+        this.youtubeVideoUrl += 'YDbDKG4X5xc'
+      } else {
+        this.youtubeVideoUrl += params['id'];
+      }
+    });
     window.setTimeout(() => {
       this.initKeyFunctions();    
     }, 1300);
+  }
+  
+
+  constructor(private route : ActivatedRoute) {
+    
   }
 
   // sets up the event listenders for key presses that pan the screen.
