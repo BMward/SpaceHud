@@ -35,12 +35,11 @@ export class CubeComponent implements OnInit {
     this.scene.add( this.mesh );
   
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
-    this.renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( this.renderer.domElement );
   }
 
   ngAfterViewInit() {
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    //this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
     this.animate();
 }

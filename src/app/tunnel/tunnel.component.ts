@@ -23,9 +23,10 @@ export class TunnelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    // this.initCanvas();
 
-    // this.animate();
+    this.initCanvas();
+
+    this.animate();
   }
 
   initCanvas() : void {
@@ -73,11 +74,11 @@ export class TunnelComponent implements OnInit {
     document.body.appendChild(this.renderer.domElement);
   }
 
-  // ngAfterViewInit() : void {
-  //   this.renderer.setSize(this.width, this.height);
-  //   this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
-  //   this.animate();
-  // }
+  ngAfterViewInit() : void {
+    this.renderer.setSize(this.width, this.height);
+    this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
+    this.animate();
+  }
 
   animate() : void {
     requestAnimationFrame(() => { this.animate(); })
