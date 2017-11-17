@@ -1,7 +1,8 @@
 /// <reference path="../../node_modules/@types/three/index.d.ts" />
 /// <reference path="../../node_modules/@types/three/three-orbitcontrols.d.ts" />
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RoutesRecognized, Params } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 declare var jquery:any;
 declare var $ :any;
 
@@ -12,6 +13,8 @@ declare var $ :any;
 })
 export class AppComponent implements OnInit, OnDestroy {
 
+  p : any; 
+  sub : any;
   youtubeVideoUrl: string;
   title = 'app';
   extended = false;
@@ -21,23 +24,29 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.youtubeVideoUrl = 'https://www.youtube.com/embed/';
-    this.route.params.subscribe(params => {
-      console.log(params);
-      if(!params['id']) {
-        this.youtubeVideoUrl += 'YDbDKG4X5xc'
-      } else {
-        this.youtubeVideoUrl += params['id'];
+    this.router.events.subscribe(val => {
+      if (val instanceof RoutesRecognized) {
+        console.log(val.state.root.firstChild.params.id);
+        this.p = val.state.root.firstChild.params.id;
       }
-    });
+    })
+    console.log(this.p);
+    // this.route.params.subscribe(params => {
+    //   console.log(params);
+    //   if(!params['id']) {
+    //     this.youtubeVideoUrl += 'YDbDKG4X5xc'
+    //   } else {
+    //     this.youtubeVideoUrl += params['id'];
+    //   }
+    // });
     window.setTimeout(() => {
       this.initKeyFunctions();    
     }, 1300);
   }
   
 
-  constructor(private route : ActivatedRoute) {
-    
-  }
+  constructor(private route : ActivatedRoute,
+              private router: Router) { }
 
   // sets up the event listenders for key presses that pan the screen.
   initKeyFunctions() : void {
