@@ -62,12 +62,6 @@
   }
 }
 
-@keyframes slide-left {
-  100% {
-    right: 0%
-  }
-}
-
 @keyframes fade-in {
   from {
     opacity: 0;
