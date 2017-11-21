@@ -9,19 +9,19 @@ declare var $ :any;
   encapsulation: ViewEncapsulation.None
 })
 export class ButtonPanelComponent implements OnInit {
-
   extended: boolean = false;
+  
   constructor() { }
 
   ngOnInit() {
   }
 
-  movePanel() : void {
+  moveButtonPanel() : void {
     var panel = $('.bottom-right-panel')[0];
     if(!this.extended) {
-      panel.style["animation"] = "slide-buttons-left .75s forwards"
+      panel.style["animation"] = "slide-buttons-left .75s forwards";
     } else {
-      panel.style["animation"] = "slide-buttons-right .75s forwards"
+      panel.style["animation"] = "slide-buttons-right .75s forwards";
     }
     this.extended = !this.extended;
     
