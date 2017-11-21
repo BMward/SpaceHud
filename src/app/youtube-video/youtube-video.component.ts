@@ -29,7 +29,6 @@ export class YoutubeVideoComponent implements OnInit {
     }
     this.youtubeBaseUrl += this.videoId[0];
     this.sanitizedYouTubeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.youtubeBaseUrl);
-    console.log(this.sanitizedYouTubeUrl);
   }
 
   movePanel() : void {

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CubeComponent } from './cube/cube.component';
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
   { path: 'cube', component: CubeComponent },
   { path: 'tunnel', component: TunnelComponent },
   { path: 'cyl', component: CylinderComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home/0', pathMatch: 'full' }
 ]
 
 
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes
       // { enableTracing: true }
