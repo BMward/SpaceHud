@@ -9,6 +9,7 @@ import { TunnelComponent } from './tunnel/tunnel.component';
 import { CylinderComponent } from './cylinder/cylinder.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 import { HomeComponent } from './home/home.component';
+import { ButtonPanelComponent } from './button-panel/button-panel.component';
 
 const appRoutes: Routes = [
   { path: 'home/:id', component: HomeComponent },
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     TunnelComponent,
     CylinderComponent,
     YoutubeVideoComponent,
-    HomeComponent
+    HomeComponent,
+    ButtonPanelComponent
   ],
   imports: [
     BrowserModule,
