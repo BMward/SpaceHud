@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApodService } from '../Services/apod.service';
 declare var jquery:any;
 declare var $ :any;
 
@@ -11,7 +12,7 @@ declare var $ :any;
 export class ButtonPanelComponent implements OnInit {
   extended: boolean = false;
   
-  constructor() { }
+  constructor(private apod : ApodService) { }
 
   ngOnInit() {
   }

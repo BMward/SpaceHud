@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
-declare var jquery:any;
-declare var $ :any;
+import { APODPayload } from '../Models/APODPayload';
+import { ApodService } from '../Services/apod.service';
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   fetchedHtml : any;
   apodUrl : string;
   testIds = [];
-  constructor(private route : ActivatedRoute, private _client : HttpClient) 
+  constructor(private route : ActivatedRoute, private _client : HttpClient, private apod : ApodService) 
   {
     this.client = _client;
   }
@@ -25,12 +26,9 @@ export class HomeComponent implements OnInit {
       this.testIds.push(params.get('id'));
     })
     
-    this.setApodBackground();
-  }
-  
-  setApodBackground() : void {
-    let background = $('.screen-background')[0]; 
-    $(background).css('background-image', 'url(' + '../../assets/backgrounds/mw.jpg' + ')');
-  };
+    // var d = new Date();
+    // console.log(d.toISOString().slice(0, 10));
 
+    this.apod.setApodBackground();
+  }
 }

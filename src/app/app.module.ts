@@ -10,6 +10,7 @@ import { CylinderComponent } from './cylinder/cylinder.component';
 import { YoutubeVideoComponent } from './youtube-video/youtube-video.component';
 import { HomeComponent } from './home/home.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
+import { ApodService } from './Services/apod.service';
 
 const appRoutes: Routes = [
   { path: 'home/:id', component: HomeComponent },
@@ -38,7 +39,7 @@ const appRoutes: Routes = [
       // { enableTracing: true }
     )
   ],
-  providers: [],
+  providers: [ApodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
