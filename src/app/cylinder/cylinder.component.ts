@@ -15,6 +15,7 @@ export class CylinderComponent implements OnInit {
   renderer: THREE.WebGLRenderer;
   camera: THREE.PerspectiveCamera;
   cubeCam: THREE.CubeCamera;
+  fog: THREE.Fog;
   mesh: THREE.Mesh;
   geometry: THREE.BoxGeometry;
   material: THREE.MeshNormalMaterial;
@@ -36,7 +37,7 @@ export class CylinderComponent implements OnInit {
     this.scene.add(this.cubeCam);
 
     // setup some geometry
-    this.geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+    this.geometry = new THREE.BoxGeometry(10, 10, 10);
     this.material = new THREE.MeshNormalMaterial();
 
     this.mesh = new THREE.Mesh(this.geometry, this.material);
@@ -58,9 +59,12 @@ export class CylinderComponent implements OnInit {
     this.tunnelTexture.wrapT = this.tunnelTexture.wrapS = THREE.RepeatWrapping;
     this.tunnelTexture.repeat.set(1, 2);
 
+    
+
+
     // Tunnel Mesh
     this.tunnelMesh = new THREE.Mesh(
-      new THREE.CylinderGeometry(50, 50, 1024, 16, 32, true),
+      new THREE.CylinderGeometry(2, 1, 4000, 32, 32, true),
       new THREE.MeshBasicMaterial({
         color: 'green',
         transparent: true,
@@ -71,6 +75,10 @@ export class CylinderComponent implements OnInit {
     this.tunnelMesh.rotation.x = this.deg2rad(90);
     this.tunnelMesh.position.z = 128;
     this.scene.add(this.tunnelMesh);
+
+    // fog
+    var fog = new THREE.Fog(0xfff, 1, 400);
+    this.scene.fog = fog;
 
   }
 
@@ -91,6 +99,7 @@ export class CylinderComponent implements OnInit {
     (<THREE.MeshBasicMaterial>this.tunnelMesh.material).color.setHSL(Math.abs(Math.cos((this.time.getElapsedTime() / 10))), 1, 0.5);
     this.tunnelTexture.offset.y = this.time.getElapsedTime() / 2;
     this.tunnelTexture.offset.x = this.time.getElapsedTime() / 6;
+    this.tunnelMesh.geometry.scale(1.05, 1.05, 1.05);
     this.renderer.render(this.scene, this.camera);
   }
 
