@@ -11,7 +11,8 @@ declare var $ :any;
 })
 export class ButtonPanelComponent implements OnInit {
   extended: boolean = false;
-  
+  buttonCaret : string = '<';
+
   constructor(private apod : ApodService) { }
 
   ngOnInit() {
@@ -26,6 +27,15 @@ export class ButtonPanelComponent implements OnInit {
     }
     this.extended = !this.extended;
     
+  }
+
+  warp() : void {
+    var msg = this.apod.apodDayBefore();
+    if(msg == false) {
+      console.log('msg false');
+      var el = $('.video-button')[0];
+      $(el).css("background", 'rgba(255, 100, 85, .8) !important');
+    }
   }
 
 }
