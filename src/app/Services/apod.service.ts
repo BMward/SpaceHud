@@ -3,6 +3,7 @@ import { APODPayload } from '../Models/APODPayload'
 import { HttpClient } from '@angular/common/http';
 import { KEYS } from '../KEYS';
 import * as moment from 'moment';
+import { Observable } from 'rxjs/Observable';
 
 declare var jquery:any;
 declare var $ :any;
@@ -10,40 +11,40 @@ declare var $ :any;
 @Injectable()
 export class ApodService {
 
-  date : moment.Moment;;
+  date : moment.Moment;
   keys : KEYS = new KEYS();
+  explanation : string;
 
   constructor(private http : HttpClient) 
   {
     this.date = moment();
     console.log(this.date.format('YYYY-MM-DD'));
-    //toISOString().slice(0, 10)
   }
 
-  apodDayBefore() : boolean {
+  apodDayBefore() : void {
     this.date = this.date.subtract(1, 'days');
-    if(this.setApodBackground(this.date)) return true;
-    return false;
+    this.setApodBackground(this.date);
   }
 
-  setApodBackground(d? : moment.Moment) : boolean {
-    let background = $('.screen-background')[0];
-    let url;
+  setApodBackground(d? : moment.Moment) : void {
+    this.getApodBackground(d).subscribe((d : APODPayload) => {
+      var url = d.hdurl;
+      this.explanation = d.explanation;
+      if(d.media_type == "video") {
+        console.log('hit video');
+      } 
+      console.log(d.hdurl);
+      $($('.screen-background')[0]).css('background-image', 'url(' + url + ')');
+    });
+  };
+
+  getApodBackground(d? : moment.Moment) : Observable<APODPayload> {
     let queryString = `https://api.nasa.gov/planetary/apod?api_key=${this.keys.apodKey}`;
     if(d) {
       queryString += '&date=' + this.date.format('YYYY-MM-DD') ;
     }
-    this.http.get(queryString).subscribe((d : APODPayload) => {
-      url = d.hdurl;
-      if(d.media_type == "video") {
-        console.log('hit video');
-        return false;
-      } 
-      console.log(d.hdurl);
-      $(background).css('background-image', 'url(' + url + ')');
-      return true;
-    });
-    return null;
-  };
+    return this.http.get<APODPayload>(queryString);
+
+  }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApodService } from '../Services/apod.service';
 import { Channel, channels } from '../Models/Channel';
 import * as _ from 'lodash';
+import { RadioService } from '../Services/radio.service';
 declare var jquery:any;
 declare var $ :any;
 
@@ -17,12 +18,17 @@ export class ButtonPanelComponent implements OnInit {
   stations : Channel[];
   selectedStation : Channel;
   audio : HTMLAudioElement = new Audio();
+  description : string;
 
-  constructor(private apod : ApodService) { }
+  constructor(private apod : ApodService, private radio : RadioService) 
+  {
+     
+  }
 
   ngOnInit() {
-    this.stations = channels;
-    this.loadRandomStation();
+    this.description = this.apod.explanation;
+    console.log(this.apod.explanation);
+    this.radio.loadRandomStation();
   }
 
   moveButtonPanel() : void {
@@ -40,24 +46,10 @@ export class ButtonPanelComponent implements OnInit {
 
   warp() : void {
     var msg = this.apod.apodDayBefore();
-    if(msg == false) {
-      console.log('msg false');
-      var el = $('.video-button')[0];
-      $(el).css("background", 'rgba(255, 100, 85, .8) !important');
-    }
+    // if(msg == false) {
+    //   console.log('msg false');
+    //   var el = $('.video-button')[0];
+    //   $(el).css("background", 'rgba(255, 100, 85, .8) !important');
+    // }
   }
-
-  loadRandomStation() : void {
-    var channel = this.stations[_.random(0,this.stations.length-1)];    
-    console.log(channel);
-    this.selectedStation = channel;
-    this.loadStation(channel);
-  }
-
-  loadStation(station : Channel) : void {
-    this.audio.src = station.uri;
-    this.audio.load();
-    this.audio.play();
-  }
-
 }
