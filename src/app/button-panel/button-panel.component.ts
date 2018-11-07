@@ -27,15 +27,15 @@ export class ButtonPanelComponent implements OnInit {
 
   moveButtonPanel() : void {
     var panel = $('.bottom-right-panel')[0];
+    var expander = document.getElementById('expander-button');
     if(!this.extended) {
       panel.style["animation"] = "slide-buttons-left .75s forwards";
-      this.buttonCaret = '>';
+      expander.style["transform"] = "rotate(180deg)";
     } else {
       panel.style["animation"] = "slide-buttons-right .75s forwards";
-      this.buttonCaret = '<';
+      expander.style["transform"] = "rotate(0deg)";
     }
     this.extended = !this.extended;
-    
   }
 
   warp() : void {
