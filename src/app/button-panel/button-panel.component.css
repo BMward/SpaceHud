@@ -6,6 +6,24 @@
   border: 0px solid black !important;
   margin: 10px;
 }
+.dropdown-list {
+  margin: 2px;
+  background-color: #5369c9;
+  opacity: .7;
+  color: white;
+  font-size: 12px;
+  border-radius: 2px;
+  position: inherit;
+  margin-left: 12px;
+  margin-top: 6px;
+}
+.color-flash-slow {
+  -webkit-animation: color-change 1s ease-in-out infinite alternate;
+  -moz-animation: color-change 1s ease-in-out infinite alternate;
+  -o-animation: color-change 1s ease-in-out infinite alternate;
+  -ms-animation: color-change 1s ease-in-out infinite alternate;
+  animation: color-change 1s ease-in-out infinite alternate;
+}
 .bottom-row-button {
   bottom: 0%;
   border-top-right-radius: 5px;
@@ -20,7 +38,14 @@
   border-bottom-right-radius: 5px;
   border-top-left-radius: 20px;
 }
-.video-button {
+.flashing-text {
+  position: absolute;
+  right: 11%;
+  top: 20%;
+  color: white;
+  font-size: 16px;
+}
+.warp-button {
   bottom: 0%;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 20px;
@@ -91,4 +116,86 @@
   to {
     right: -35%;
   }
+}
+@-webkit-keyframes color-change {
+  0% {
+    color: White;
+  }
+  50% {
+    color: #a0b3fd;
+  }
+  100% {
+    color: #5369c9;
+  }
+}
+@-moz-keyframes color-change {
+  0% {
+    color: White;
+  }
+  50% {
+    color: #a0b3fd;
+  }
+  100% {
+    color: #5369c9;
+  }
+}
+@-ms-keyframes color-change {
+  0% {
+    color: White;
+  }
+  50% {
+    color: #a0b3fd;
+  }
+  100% {
+    color: #5369c9;
+  }
+}
+@-o-keyframes color-change {
+  0% {
+    color: White;
+  }
+  50% {
+    color: #a0b3fd;
+  }
+  100% {
+    color: #5369c9;
+  }
+}
+@keyframes color-change {
+  0% {
+    color: White;
+  }
+  50% {
+    color: #a0b3fd;
+  }
+  100% {
+    color: #5369c9;
+  }
+}
+#station-select {
+  margin: 2px;
+  background-color: #5369c9;
+  opacity: .7;
+  color: white;
+  font-size: 12px;
+  border-radius: 2px;
+  margin-left: 12px;
+  margin-top: 6px;
+  height: 28px;
+  width: 200px !important;
+  position: inherit;
+  right: 1%;
+  top: 3%;
+}
+#station-select-label {
+  position: absolute;
+  right: 11%;
+  top: 20%;
+  color: white;
+  font-size: 16px;
+  -webkit-animation: color-change 1s ease-in-out infinite alternate;
+  -moz-animation: color-change 1s ease-in-out infinite alternate;
+  -o-animation: color-change 1s ease-in-out infinite alternate;
+  -ms-animation: color-change 1s ease-in-out infinite alternate;
+  animation: color-change 1s ease-in-out infinite alternate;
 }

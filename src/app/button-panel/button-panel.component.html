@@ -1,4 +1,8 @@
 <div class="bottom-right-panel">
     <button class="expander-button" (click)="moveButtonPanel()">{{buttonCaret}}</button>
-    <button id="warp" class="video-button" (click)="warp()">warp</button>
+    <select class="form-group" [(ngModel)]="selectedStation" id="station-select" (change)="loadStation(selectedStation)">
+        <option disabled selected id="station-select-label">pick a station</option>
+        <option *ngFor="let station of stations" [ngValue]="station">{{station.name}}</option>
+    </select>
+    <button id="warp" class="warp-button" (click)="warp()">warp</button>
 </div>
