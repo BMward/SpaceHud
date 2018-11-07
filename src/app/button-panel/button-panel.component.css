@@ -92,11 +92,12 @@
 .bottom-right-panel {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.3);
-  height: 20%;
+  height: 25%;
   width: 40%;
   bottom: 10%;
   right: -35%;
   border-radius: 5px;
+  z-index: 10;
 }
 @keyframes indigo-button-fade-light {
   from {
