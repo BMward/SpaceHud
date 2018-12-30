@@ -8,24 +8,23 @@ import { RadioService } from '../Services/radio.service';
   encapsulation: ViewEncapsulation.None
 })
 export class RadioPanelComponent implements OnInit {
-  radioPlaying : boolean = true;
-  radioStatus : string = "pause"
+  radioStatus : string = "="
 
   constructor(private radio : RadioService) { }
 
   ngOnInit() {
+    this.radio.loadRandomStation();
   }
 
   toggleRadio() : void {
-    console.log(this.radioPlaying);
-    if(this.radioPlaying) {
+    if(this.radio.playing) {
       this.radio.audio.pause();
-      this.radioStatus = "tune";
+      this.radioStatus = ">";
     } else {
       this.radio.audio.play();
-      this.radioStatus = "pause";
+      this.radioStatus = "=";
     }
-    this.radioPlaying = !this.radioPlaying;
+    this.radio.playing = !this.radio.playing;
   }
 
 }

@@ -1,7 +1,5 @@
 .button-base {
   background: #5369c9;
-  width: 60px;
-  height: 40px;
   opacity: .7 !important;
   border: 0px solid black !important;
   margin: 10px;
@@ -11,14 +9,13 @@
 }
 .radio-toggle-button {
   background: #5369c9;
-  width: 60px;
-  height: 40px;
   opacity: .7 !important;
   border: 0px solid black !important;
   margin: 10px;
   left: 0;
   top: 15px;
   height: 30px !important;
+  width: 30px;
 }
 .radio-toggle-button:active {
   background-color: orange !important;
