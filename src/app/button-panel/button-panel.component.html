@@ -1,9 +1,10 @@
 <div class="bottom-right-panel">
     <button class="expander-button" id="expander-button" (click)="moveButtonPanel()">{{buttonCaret}}</button>
-    <select class="form-group" [(ngModel)]="this.radio.selectedStation" id="station-select" (change)="this.radio.loadStation(this.radio.selectedStation)">
+    <!-- <select class="form-group" [(ngModel)]="this.radio.selectedStation" id="station-select" (change)="this.radio.loadStation(this.radio.selectedStation)">
         <option disabled selected id="station-select-label">pick a station</option>
         <option *ngFor="let station of this.radio.stations" [ngValue]="station">{{station.name}}</option>
     </select>
+    <button class="radio-toggle-button" (click)="toggleRadio()">{{radioStatus}}</button> -->
     <div id="apod-description" class="text-box">
         {{this.apod.explanation}}
     </div>

@@ -15,20 +15,13 @@ declare var $ :any;
 export class ButtonPanelComponent implements OnInit {
   extended: boolean = false;
   buttonCaret : string = '<';
-  stations : Channel[];
-  selectedStation : Channel;
-  audio : HTMLAudioElement = new Audio();
   description : string;
 
-  constructor(private apod : ApodService, private radio : RadioService) 
-  {
-     
-  }
+  constructor(public apod : ApodService) 
+  {  }
 
   ngOnInit() {
     this.description = this.apod.explanation;
-    console.log(this.apod.explanation);
-    this.radio.loadRandomStation();
   }
 
   moveButtonPanel() : void {
@@ -45,11 +38,6 @@ export class ButtonPanelComponent implements OnInit {
   }
 
   warp() : void {
-    var msg = this.apod.apodDayBefore();
-    // if(msg == false) {
-    //   console.log('msg false');
-    //   var el = $('.video-button')[0];
-    //   $(el).css("background", 'rgba(255, 100, 85, .8) !important');
-    // }
+    this.apod.apodDayBefore();
   }
 }

@@ -9,6 +9,24 @@
 .button-base:active {
   background-color: orange !important;
 }
+.radio-toggle-button {
+  position: absolute;
+  width: 10%;
+  height: 30%;
+  opacity: .7 !important;
+  border: 0px solid black !important;
+  margin: 10px;
+  top: 0%;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 20px;
+  border-top-left-radius: 5px !important;
+  right: 28%;
+}
+.radio-toggle-button:active {
+  background-color: orange !important;
+}
 .dropdown-list {
   margin: 2px;
   background-color: #5369c9;

@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 export class RadioService {
   stations : Channel[];
   selectedStation : Channel;
+  playing : boolean;
 
   audio : HTMLAudioElement;
 
@@ -26,6 +27,7 @@ export class RadioService {
     this.audio.src = station.uri;
     this.audio.load();
     this.audio.play();
+    this.playing = true;
   }
 
 

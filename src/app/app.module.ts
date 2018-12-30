@@ -13,13 +13,14 @@ import { HomeComponent } from './home/home.component';
 import { ButtonPanelComponent } from './button-panel/button-panel.component';
 import { ApodService } from './Services/apod.service';
 import { RadioService } from './Services/radio.service';
+import { RadioPanelComponent } from './radio-panel/radio-panel.component';
 
 const appRoutes: Routes = [
   { path: 'home/:id', component: HomeComponent },
   { path: 'cube', component: CubeComponent },
   { path: 'tunnel', component: TunnelComponent },
   { path: 'cyl', component: CylinderComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' }
+  { path: '', redirectTo: 'home/0', pathMatch: 'full' }
 ]
 
 
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     CylinderComponent,
     YoutubeVideoComponent,
     HomeComponent,
-    ButtonPanelComponent
+    ButtonPanelComponent,
+    RadioPanelComponent
   ],
   imports: [
     BrowserModule,
