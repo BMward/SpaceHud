@@ -8,7 +8,7 @@ import { RadioService } from '../Services/radio.service';
   encapsulation: ViewEncapsulation.None
 })
 export class RadioPanelComponent implements OnInit {
-  radioStatus : string = "="
+  radioStatus : string = ">"
 
   constructor(private radio : RadioService) { }
 

@@ -3,7 +3,7 @@ import { APODPayload } from '../Models/APODPayload'
 import { HttpClient } from '@angular/common/http';
 import { KEYS } from '../KEYS';
 import * as moment from 'moment';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 declare var jquery:any;
 declare var $ :any;

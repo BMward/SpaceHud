@@ -26,8 +26,7 @@ export class RadioService {
   loadStation(station : Channel) : void {
     this.audio.src = station.uri;
     this.audio.load();
-    this.audio.play();
-    this.playing = true;
+    this.playing = false;
   }
 
 
