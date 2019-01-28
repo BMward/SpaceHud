@@ -22,8 +22,8 @@ export class CubeComponent implements OnInit {
   rotationx : number = 90;
   rotationy : number = 0;
 
-  colorArray : string[] = ['white', 'blue', 'green', 'magenta', 'yellow', 'lime', 'teal', 'steelblue'];
-  cIndex : number = 0;
+  // colorArray : string[] = ['white', 'blue', 'green', 'magenta', 'yellow', 'lime', 'teal', 'steelblue'];
+  // cIndex : number = 0;
 
 
   tex : THREE.Texture;
