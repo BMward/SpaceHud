@@ -22,7 +22,7 @@ export class YoutubeVideoComponent implements OnInit {
 
   ngOnInit() {
     if(this.id === null || this.id === undefined || this.id.length < 11) {
-      this.videoId.push('YDbDKG4X5xc');
+      this.videoId.push('ztFovwCaOik');
     }
     else {
       this.videoId.push(this.id);
@@ -34,10 +34,10 @@ export class YoutubeVideoComponent implements OnInit {
   movePanel() : void {
     var panel = $('.bottom-left-panel')[0];
     if(!this.extended) {
-      panel.style["animation"] = "slide-right-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
+      panel.style["animation"] = "slide-right-arm .75s forwards"
       console.log('panel extended');
     } else {
-      panel.style["animation"] = "slide-left-arm .75s forwards, neon2 2.5s ease-in-out infinite alternate"
+      panel.style["animation"] = "slide-left-arm .75s forwards"
       console.log('panel extended');
     }
     this.extended = !this.extended;

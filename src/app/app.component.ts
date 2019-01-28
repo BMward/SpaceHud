@@ -23,9 +23,9 @@ export class AppComponent implements OnInit {
   constructor(private route : ActivatedRoute, private router : Router) {
     
 
-    window.setTimeout(() => {
-      this.initKeyFunctions();    
-    }, 1300);
+    // window.setTimeout(() => {
+    //   this.initKeyFunctions();    
+    // }, 1300);
   }
 
   // sets up the event listenders for key presses that pan the screen.

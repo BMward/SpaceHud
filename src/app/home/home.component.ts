@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   client : HttpClient;
   fetchedHtml : any;
   apodUrl : string;
-  
+  videoId : string;
   testIds = [];
   constructor(private route : ActivatedRoute, private _client : HttpClient, private apod : ApodService) 
   {
@@ -23,7 +23,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() : void {
     this.route.paramMap.subscribe(params => {
-      this.testIds.push(params.get('id'));
+      this.videoId = params.get('id');
+      console.log(this.videoId);
+      // this.testIds.push(params.get('id'));
+
     })
     this.apod.setApodBackground();
   }
