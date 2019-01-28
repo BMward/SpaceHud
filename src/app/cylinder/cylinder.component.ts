@@ -99,7 +99,7 @@ export class CylinderComponent implements OnInit {
     (<THREE.MeshBasicMaterial>this.tunnelMesh.material).color.setHSL(Math.abs(Math.cos((this.time.getElapsedTime() / 10))), 1, 0.5);
     this.tunnelTexture.offset.y = this.time.getElapsedTime() / 2;
     this.tunnelTexture.offset.x = this.time.getElapsedTime() / 6;
-    this.tunnelMesh.geometry.scale(1.05, 1.05, 1.05);
+    this.tunnelMesh.geometry.scale(1.01, 1.01, 1.01);
     this.renderer.render(this.scene, this.camera);
   }
 
