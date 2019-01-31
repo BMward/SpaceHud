@@ -71,7 +71,8 @@ export class CubeComponent implements OnInit {
   ngAfterViewInit() {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
-    // this.setupMouseHooks();
+    this.setupMouseEvents();
+    this.setupKeyEvents();
     this.animate();
 }
 
@@ -87,17 +88,28 @@ export class CubeComponent implements OnInit {
     this.renderer.render( this.scene, this.camera );
   }
 
-  setupMouseHooks() : void {
-    this.renderer.domElement.addEventListener('mousemove', (e : MouseEvent) => {
-      // this.rotationx = e.movementX*.005;
-      // this.rotationy = e.movementY*.005;
+  setupMouseEvents() : void { 
+    document.addEventListener('mousemove', (e : MouseEvent) => {
+      if(e.shiftKey) {
+        this.camera.rotateY(e.movementX*.001);
+        this.camera.rotateX(e.movementY*.001);
+      }
     })
-
-    this.renderer.domElement.addEventListener('mousedown', (e : MouseEvent) => {
-      this.rotationx = 0;
-      this.rotationy = 0;
-      this.animate();
-    });
   }
 
+  setupKeyEvents() : void {
+    document.addEventListener('keydown', (e : KeyboardEvent) => {
+      console.log(e);
+      //left arrow ArrowLeft
+      if(e.key === "ArrowLeft") this.camera.position.y += .03;
+      if(e.key === "ArrowRight") this.camera.position.y += -.03;
+      if(e.key === "ArrowUp") this.camera.position.x += .03;
+      if(e.key === "ArrowDown") this.camera.position.x += -.03;
+      if(e.key === " ") 
+      {
+        // this.camera.position.x += .1; 
+        // this.camera.position.y += .1; 
+      }
+    })
+  }
 }
