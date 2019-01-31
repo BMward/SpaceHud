@@ -11,6 +11,7 @@ import { Mesh } from 'three';
 })
 export class CubeComponent implements OnInit {
   @ViewChild('rendererContainer') rendererContainer: ElementRef;
+  videoId : string = "";
 
   scene : THREE.Scene;
   camera : THREE.PerspectiveCamera;
@@ -51,7 +52,6 @@ export class CubeComponent implements OnInit {
       // color: 0x1cac78, slateish blue
       color: 'steelblue',
       alphaMap: this.tex,
-      aoMapIntensity: 2,
       transparent: true,
       side: THREE.BackSide,
       fog: true,

@@ -11,21 +11,13 @@ declare var $ :any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
-  testIds = [];
-  extended = false;
-  name : any;
-  routeData: any;
   
-  ngOnInit(): void {
-    
-  }
-  constructor(private route : ActivatedRoute, private router : Router) {
-    
+  ngOnInit(): void { 
 
-    // window.setTimeout(() => {
-    //   this.initKeyFunctions();    
-    // }, 1300);
+  }
+  
+  constructor(private router : Router) {
+
   }
 
   // sets up the event listenders for key presses that pan the screen.
@@ -45,12 +37,6 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  log(message: string) : void {
-    console.log(message);
-  }
-
-  
 
   PanElementWidth(className : string, increment: number) : void {
     //get the classname of the background image element
